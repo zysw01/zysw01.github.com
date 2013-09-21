@@ -212,21 +212,18 @@
           <a class="badge" target="_blank" href="mailto:zysw01@gmail.com"><i class="icon-envelope"></i> Email</a>
           <a class="badge" target="_blank" href="/rss.xml"><i class="icon-star"></i> 订阅</a>
       <h1 id="start-now" style="margin-left: 0px;margin-right: 0.694%; font-size: 22px;">体悟自然，分享经验和心情。</h1>
-      <form method="get" action="http://www.google.com/search" target="google_window" style="margin-bottom: 0px;">
-	<div>	
-		<input type="text" value="" name="q" style="width:70%;"/>
-		<input type="submit" name=”btnG” id="searchsubmit" value=" 站内搜索 " />
-	</div>
+      <form id="searchform" action="http://www.google.com/search" method="get" target="google_window">
+<input id="keywords" type="text" onwebkitspeechchange="this.parentNode.submit()" x-webkit-grammar="builtin:search" x-webkit-speech="" name="q" value="" placeholder="来找找看…">
+	<input id="searchsubmit" type="submit" value="站内搜索">
 	<input type="hidden" name="ie" value="UTF-8" />
 	<input type="hidden" name="oe" value="UTF-8" />
 	<input type="hidden" name="hl" value="zh-CN" />
-	<input type="hidden" name="domains" value="http://zysw01.github.com" />
-	<input type="hidden" name="sitesearch" value="http://zysw01.github.com" />
+	<input type="hidden" name="domains" value="http://zysw01.github.io" />
+	<input type="hidden" name="sitesearch" value="http://zysw01.github.io" /> 
 </form>
 
-                                
+
  
-       
       <div style="width: 100%; float: right; margin-left: 0px; margin-right: 0px;">
       <!--<iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=1651191467&verifier=80fcc888&dpc=1"></iframe>-->
       </div>
