@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git简明手册</title>
+    <meta name="description" content="Git是一个由林纳斯·托瓦兹为了更好地管理linux内核开发而创立的分布式版本控制／软件配置管理软件。如今已经超越CVS、SVN称为主流的版本控制器。许多著名的开源项目都用Git管理。
+">
+    <meta name="author" content="zysw01">
+    <meta name="keywords" content="分析之道,zysw01,Git简明手册,ut,gitgithubheroku">
+    <meta property="wb:webmaster" content="45f4c044418008e7" />
+    <meta name="chinaz-site-verification" content="1a7852f9-b42f-481f-bd38-1b9e92a55496" />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter2/css/custom.css?v=0.3" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter2/css/syntax.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+	<script src="/assets/function.js"></script>
+  </head>
+
+  <body>
+    <div id="navbar" class="navbar navbar-fixed-top" style="padding-left: 0; padding-right: 0;">
+      <div class="navbar-inner" style="background:#2c2c2c">
+        <div class="container-fluid" style="margin-left:8%; margin-right:5%; overflow:hidden; padding-left: 0; padding-right: 0;">
+          <a class="brand" href="/">分析之道</a>
+          <ul id="left-nav" class="nav" style="font-weight: 250;">
+            <li class="divider-vertical" id="left-divider"></li>
+            
+            
+
+
+  
+    
+      
+      <li><a href="/td/index.html">思维养成</a></li>
+      
+    
+  
+    
+      
+      <li><a href="/tc/index.html">技术探秘</a></li>
+      
+    
+  
+    
+      
+      <li><a href="/it/index.html">业界动向</a></li>
+      
+    
+  
+    
+      
+      <li><a href="/ut/index.html">常用工具</a></li>
+      
+    
+  
+    
+      
+      <li><a href="/archive.html">存档Archive</a></li>
+      
+    
+  
+    
+      
+      <li><a href="/about.html">关于我</a></li>
+      
+    
+  
+
+
+
+          </ul>
+          
+          <ul class="nav pull-right nav-right">
+            <li class="sharing"></li>
+            <li class="divider-vertical" id="right-divider"></li>
+            <li><a><span id=localtime class="label" style="background:#FCF8E3; font-size: 11px; font-weight: normal;"></span><script type="text/javascript">tick();</script></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="main" class="container-fluid" style="position: relative; padding-left: 8%; padding-right: 8%;">
+      
+<div class="row-fluid">
+  <div id="post-span" class="span10" style="margin-left: 10%;">
+    <div class="content post">
+      <h1 class="title">Git简明手册</h1>
+      Git是一个由林纳斯·托瓦兹为了更好地管理linux内核开发而创立的分布式版本控制／软件配置管理软件。如今已经超越CVS、SVN称为主流的版本控制器。许多著名的开源项目都用Git管理。
+
+      <h2>概述</h2>
+
+<p>如果第一次启动Git（<a href="http://msysgit.github.com/">Windows下的Git</a>），需要设置用户名和邮箱地址：</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git config --global user.name <span class="s2">&quot;My Name&quot;</span>
+<span class="nv">$ </span>git config --global user.email <span class="s2">&quot;user@email.com&quot;</span>
+</code></pre></div>
+
+
+<p><span style="float:right"><a href="http://git-scm.org"><img src="/res/images/git.png" alt="Git" /></a></span></p>
+
+<h3>关于Git，GitHub和Heroku</h3>
+
+<ul>
+<li><strong>Git</strong>是一个自由开源的版本控制器，它被设计用来高效管理大大小小的项目。</li>
+<li><strong>GitHub</strong>是一个用于使用Git版本控制系统的项目的基于互联网的存取服务，使用Ruby on Rails开发而成，是目前最流行的Git存取站点，许多优秀的开源项目都托管在<a href="https://github.com/">GitHub</a>上。</li>
+<li><strong>Heroku</strong>是一个基于PaaS的云服务平台，支持包括Java，Ruby，Node.js，和Clojure在内的多种语言开发的应用程序。</li>
+</ul>
+
+
+<h2>Git基本的工作流程</h2>
+
+<ul>
+<li>初始化（init）一个新的版本库，然后将目录中的所有文件纳入管理，Git把这个过程称为stage，最后以快照的方式提交所有文件。</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git init
+<span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -m <span class="s1">&#39;initial commit&#39;</span>
+</code></pre></div>
+
+
+<ul>
+<li>创建一个新的分支（branch），将它检出（checkout）为活动分支，然后就可以编辑、载入和提交新的快照。</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git branch featureA
+<span class="nv">$ </span>git checkout featureA
+<span class="c"># (edit files)</span>
+<span class="nv">$ </span>git add <span class="o">(</span>files<span class="o">)</span>
+<span class="nv">$ </span>git commit -m <span class="s1">&#39;add feature A&#39;</span>
+</code></pre></div>
+
+
+<p><code>git add (files)</code>中(files)可以使具体的文件名，匹配所有用<code>git add .</code>。</p>
+
+<p>转换到master分支，恢复featureA分支中刚刚做的更改，然后编辑一些文件，并将这些更改提交到master分支。</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git checkout master
+<span class="nv">$ </span><span class="o">(</span>edit files<span class="o">)</span>
+<span class="nv">$ </span>git commit -a -m <span class="s1">&#39;change files&#39;</span>
+</code></pre></div>
+
+
+<p>合并（merge）featureA分支到master分支，结合你的项目需要，可以删掉featureA分支。</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git merge featureA
+<span class="nv">$ </span>git branch -d featureA
+</code></pre></div>
+
+
+<p><img src="/res/images/local-remote.png" title="git本地-远程操作" alt="git操作" /></p>
+
+<h2>启动&amp;初始化</h2>
+
+<p>Git的配置、版本库初始化（init）和克隆（clone）。</p>
+
+<table border="1" style="width:90%">
+    <tr><td>git config [key] [value]</td><td>配置版本库参数</td></tr>
+    <tr><td>git config --global [key] [value]</td><td>为用户设置全局属性</td></tr>
+    <tr><td>git init</td><td>将已经存在的一个目录初始化为Git版本库</td></tr>
+    <tr><td>git clone [url]</td><td>从一个URL地址克隆（clone）一个Git版本库</td></tr>
+    <tr><td>git help [command]</td><td>获取帮助</td></tr>
+</table>
+
+
+<h2>暂存&amp;快照</h2>
+
+<p>使用Git的快照（snapshots）和暂存区（staging area）。</p>
+
+<table border="1" style="width:90%;">
+    <tr><td>git status</td><td>显示下次提交的暂存区的状态和工作目录的更改</td></tr>
+    <tr><td>git add [file]</td><td>添加文件到暂存区</td></tr>
+    <tr><td>git reset [file]</td><td>重置暂存区的一个文件使之前的更改不被暂存</td></tr>
+    <tr><td>git diff</td><td>显示未暂存的更改（即比较暂存和未暂存的项）</td></tr>
+    <tr><td>git diff --staged</td><td>显示未提交的更改（即比较暂存区和版本库）</td></tr>
+    <tr><td>git commit</td><td>以一个新的快照提交暂存项</td></tr>
+    <tr><td>git rm [file]</td><td>从工作目录和暂存区移除文件</td></tr>
+    <tr><td>git gui</td><td>启动Git GUI图形界面</td></tr>
+</table>
+
+
+<h2>分支&amp;合并</h2>
+
+<p>使用Git的分支（branch）和临时存放（stash）。</p>
+
+<table border="1" style="width:90%;">
+    <tr><td>git branch</td><td>列出当前的所有分支，前边加<code>*</code>号的为当前活动分支</td></tr>
+    <tr><td>git branch [branch-name]</td><td>以当前的提交创建一个新的分支</td></tr>
+    <tr><td>git checkout [branch]</td><td>切换到另一个分支，并检出到当前工作目录</td></tr>
+    <tr><td>git checkout -b [branch]</td><td>创建一个新的分支并切换到该分支</td></tr>
+    <tr><td>git merge [branch]</td><td>进另一个分支合并到当前活动分支，并将此次合并记录为一次提交</td></tr>
+    <tr><td>git log</td><td>显示提交日志</td></tr>
+    <tr><td>git stash</td><td>临时存储当前未提交的更改</td></tr>
+    <tr><td>git stash apply</td><td>恢复最后一次的临时存储</td></tr>
+</table>
+
+
+<h2>共享&amp;更新</h2>
+
+<p>抓取（fetch）、合并（merge），以及从另一个版本库获取更新。</p>
+
+<table border="1" style="width:90%;">
+    <tr><td>git remote add [alias] [url]</td><td>为一个URL地址添加别名</td></tr>
+    <tr><td>git fetch [alias]</td><td>从远程版本库拉取所有分支</td></tr>
+    <tr><td>git merge [alias]/[branch]</td><td>合并一个分支到当前活动分支，是当前活动分支更新到最新版本</td></tr>
+    <tr><td>git push [alias] [branch]</td><td>推送本地分支到远程版本库，使远程版本库获得更新</td></tr>
+    <tr><td>git pull</td><td>从当前分支跟踪的远程分支中合并数据到本地</td></tr>
+</table>
+
+
+<h2>检查&amp;比较</h2>
+
+<p>抓取（fetch）、合并（merge），以及从另一个版本库获取更新。</p>
+
+<table border="1" style="width:90%;">
+    <tr><td>git log</td><td>显示当前分支的提交历史</td></tr>
+    <tr><td>git log branchB..branchA</td><td>显示branchA有而branchB没有的提交</td></tr>
+    <tr><td>git log --follow [file]</td><td>显示该文件的提交记录，包括重命名</td></tr>
+    <tr><td>git diff branchB...branchA</td><td>显示在branchA中而不在branchB中的不同</td></tr>
+    <tr><td>git show [SHA]</td><td>显示人可读格式的文件的</td></tr>
+    <tr><td>gitx</td><td>在GUI中显示提交记录</td></tr>
+</table>
+
+
+<h2>参与GitHub上的开源项目</h2>
+
+<p>先将托管在GitHub上的项目克隆（clone）到本地，做过更改之后推送回GitHub，然后发送一个pull请求，项目的维护者就会收到邮件通知。
+在GitHub上fork（拷贝一份到你的版本库列表）项目：</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git clone https://github.com/my-user/project
+<span class="nv">$ </span><span class="nb">cd </span>project
+<span class="c"># (edit files)</span>
+<span class="nv">$ </span>git add <span class="o">(</span>files<span class="o">)</span>
+<span class="nv">$ </span>git commit -m <span class="s1">&#39;Explain what I changed&#39;</span>
+<span class="nv">$ </span>git push origin master
+</code></pre></div>
+
+
+<p>然后到<a href="http://github.com">GitHub</a>上点击<code>pull request</code>按钮。</p>
+
+<h2>使用Git部署到Heroku</h2>
+
+<p>使用Heroku的命令行工具创建和管理远程应用：</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>heroku create
+<span class="o">[</span>Creating glowing-dusk-965... <span class="k">done</span>, stack is bamboo-mri-1.9.2
+http://glowing-dusk-965.heroku.com/ &lt;http://glowing-dusk-965.
+heroku.com/&gt; | git@heroku.com:glowing-dusk-965.git &lt;x-msg://536/
+git@heroku.com:glowing-dusk-965.git&gt; Git remote heroku added<span class="o">]</span>
+</code></pre></div>
+
+
+<p>使用Git部署应用：</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git push heroku master
+</code></pre></div>
+
+
+<p>创建一个额外的Heroku应用暂存，并将远程的暂存命名为“staging”：</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>heroku create my-staging-app --remote staging
+</code></pre></div>
+
+
+<p>用Git部署远程的暂存：</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git push staging master
+</code></pre></div>
+
+
+
+
+<table width="90%">
+    <tr>
+        <td><a href="http://github.com"><img src="/res/images/github.png" alt="GitHub" /></a></td>
+        <td><a href="http://www.heroku.com"><img src="/res/images/heroku.png" alt="Heroku" /></a></td>
+    </tr>
+</table>
+
+
+<hr />
+
+    
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'zysw01'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+      <hr>
+      
+    </div> <!-- /container -->
+
+   <!-- <footer class="footer">
+      <p id="footer-first-child">Lovingly authored by zysw01 in 2012 with help 
+          <br>from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>,<a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>, and countless humans.
+        </p>
+        <p>&copy; 2012 zysw01, Powered by Github</p>
+        <!--<p><a href="https://mixpanel.com/f/partner"><img src="https://mixpanel.com/site_media/images/partner/badge_light.png" alt="Real Time Web Analytics" /></a></p>--
+    </footer> -->
+<div class="row">
+    <div class="span12">
+      <div class="dt-box dt-box-simple" style="text-align:center;">
+<p>Copyright &copy; <a href="/">zysw01</a> | Themed from <a href="http://www.mceiba.com" target="_blank">Mceiba</a> | Deployed on <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>,<a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>,<a href="http://github.com">Github</a>,<a href="https://github.com/mojombo/jekyll">Jekyll</a>。</p>
+      </div>
+    </div>
+  </div>
+    
+    
+    <!-- <a id="forkme" style="display:none" href="http://github.com/mceiba/mceiba.github.com"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="/assets/images/forkme.png" alt="Fork me on GitHub"></a> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/twitter2/js/jquery.min.js"><\/script>')</script>
+    <script src="/assets/app.js?v=0.1"></script>
+    <script>
+      $(function(){
+        //forkme.init(); 
+        var delta = $(window).height() - $(document.body).height() -50;
+        if (delta>0) {
+          $(".footer").css("margin-top", delta);
+          // $(".footer").animate({
+          //   "margin-top": delta+"px"
+          // }, "fast");
+        }
+      
+		  var i=1;
+  		$("h2").each(function(){$(this).attr("id",(i++)+"_"+$(this).text());});
+  		//$("h2").attr("id", function(){ return "h2_"(i++)+"_"+this.title });
+          Toc.init('#sidebar', '#main');
+        
+  	  })
+    </script>
+    
+    <!---->
+  </body>
+</html>
+
