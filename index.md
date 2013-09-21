@@ -1,7 +1,7 @@
 ---
 layout: landing
 title: zysw01的个人博客
-head_title: 晨旭园
+head_title: zysw01
 description: |
   程序员的技术生涯
 ---
