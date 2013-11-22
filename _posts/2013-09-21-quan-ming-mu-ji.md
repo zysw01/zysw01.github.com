@@ -2,7 +2,7 @@
 layout: post
 title: "全名目击观后思"
 description: "一部非常感人，值得深思，必须醒悟的片子，集结了近几年来众多的社会热点问题，反应当下，看了不会后悔。"
-category: td
+category: thinktrain
 tags: ["思考","智慧"]
 ---
 {% include JB/setup %}

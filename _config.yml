@@ -9,16 +9,16 @@ pygments: true
 
 topbar:
   - 
-    url : '/td/index.html'
-    title : '思维养成'
+    url : '/thinktrain/index.html'
+    title : '思维训练'
   - 
-    url : '/tc/index.html'
-    title : '技术探秘'
+    url : '/studynotes/index.html'
+    title : '学习笔记'
   -
-    url : '/it/index.html'
-    title : '业界动向'
+    url : '/usedmodels/index.html'
+    title : '常用模型'
   -
-    url : '/ut/index.html'
+    url : '/usedtools/index.html'
     title : '常用工具'
   -
     url : '/archive.html'

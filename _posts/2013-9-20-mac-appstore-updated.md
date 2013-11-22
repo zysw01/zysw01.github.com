@@ -1,7 +1,7 @@
 ---
 layout:  post
 title:  "Mac系统AppStore不能更新之解决方案"
-category: ut
+category: usedtools
 tags:  [Mac,AppStore,Goagent,AppID]
 
 ---

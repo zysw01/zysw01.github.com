@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
-    
+    <title>假设检验相关分析</title>
+    <meta name="description" content="包括T检验、F检验、非参数检验、卡方检验、控制变量的方法及ABtest方法">
     <meta name="author" content="zysw01">
-    <meta name="keywords" content="分析之道,zysw01,Categories">
+    <meta name="keywords" content="分析之道,zysw01,假设检验相关分析,studynotes,假设检验运营分析R实现">
     <meta property="wb:webmaster" content="45f4c044418008e7" />
     <meta name="chinaz-site-verification" content="1a7852f9-b42f-481f-bd38-1b9e92a55496" />
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -87,120 +87,47 @@
     <div id="main" class="container-fluid" style="position: relative; padding-left: 8%; padding-right: 8%;">
       
 <div class="row-fluid">
-  <div class="span8 offset2">
-    <div class="content page">
-      <h1 class="title">Posts By Category</h1>
-      
-      <ul class="tag_box inline">
-  
-  
+  <div id="post-span" class="span10" style="margin-left: 10%;">
+    <div class="content post">
+      <h1 class="title">假设检验相关分析</h1>
+      包括T检验、F检验、非参数检验、卡方检验、控制变量的方法及ABtest方法
+      <h4>假设检验的应用背景</h4>
 
+<p>1、<strong>精确区分</strong>并<strong>在多大置信度内肯定</strong>运营效果的差别是随机因素引起的，还是运营因素引起的。</p>
 
-  
-     
-      <li><a href="/categories.html#usedtools-ref">
-        usedtools <span>3</span>
-      </a></li>
-     
-      <li><a href="/categories.html#thinktrain-ref">
-        thinktrain <span>2</span>
-      </a></li>
-     
-      <li><a href="/categories.html#studynotes-ref">
-        studynotes <span>2</span>
-      </a></li>
+<p>2、从样本的结论推导总体的结论，必须进行假设检验来判断样本的差异能否代表总体的差异，同时还要确定样本的差异在多大置信度内可以代表总体的差异。</p>
+
+<h4>假设检验基本思想</h4>
+
+<p>只有两种结果的判断，选择要么A，要么B；要么显著，要么不显著；要么达标，要么不达标；这些都是是非判断。这两种选择就对应两个假设：原假设H0（Null Hypothesis），备选假设H1（Alternative）。</p>
+
+<p>关于正态分析的检验R一般使用<code>shapiro.test()</code>来提供W统计量和相应P值，当P值小于某个显著性水平a（比如0.05），则拒绝原假设：样本来自正态分析的总体，选择备选假设：样本不是来自正态分布的总体。</p>
+
     
-  
-
-
-</ul>
-
-
- 
-  <h2 id="usedtools-ref">usedtools</h2>
-  <ul>
-      
+    </div>
+    <hr>
     
 
 
-  
-    
-      
-      <li><a href="/usedtools/2013/09/22/r-yu-yan-xue-xi">R语言学习</a></li>
-      
-    
-  
-    
-      
-      <li><a href="/usedtools/2013/09/20/mac-appstore-updated">Mac系统AppStore不能更新之解决方案</a></li>
-      
-    
-  
-    
-      
-      <li><a href="/usedtools/2013/09/17/mac-emacs-r">Mac中利用R、emacs、ess搭建R运行环境</a></li>
-      
-    
-  
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'zysw01'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 
-  </ul>
- 
-  <h2 id="thinktrain-ref">thinktrain</h2>
-  <ul>
-      
-    
 
-
-  
-    
-      
-      <li><a href="/thinktrain/2013/10/02/du-shao-you-ren-zou-de-lu">读少有人走的路</a></li>
-      
-    
-  
-    
-      
-      <li><a href="/thinktrain/2013/09/21/quan-ming-mu-ji">全名目击观后思</a></li>
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="studynotes-ref">studynotes</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      <li><a href="/studynotes/2013/09/22/shu-ju-wa-jue-zhi-ni-wen-wo-da">数据挖掘之你问我答</a></li>
-      
-    
-  
-    
-      
-      <li><a href="/studynotes/2013/09/22/jia-she-jian-yan-xiang-guan-fen-xi">假设检验相关分析</a></li>
-      
-    
-  
-
-
-
-  </ul>
-
-
-
-    </div>  
   </div>
 </div>
-
 
       <hr>
       

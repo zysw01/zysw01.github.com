@@ -1,7 +1,7 @@
 ---
 layout:       post
 title:        Mac中利用R、emacs、ess搭建R运行环境
-category: ut
+category: usedtools
 tags: [Mac,Emacs,R]
 
 ---
