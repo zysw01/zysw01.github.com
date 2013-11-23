@@ -13,6 +13,7 @@ http://zysw01.github.com/thinktrain/index.html
 http://zysw01.github.com/usedmodels/index.html
 http://zysw01.github.com/usedtools/index.html
 
+http://zysw01.github.com/2013/11/23/r-zuo-tu-zhong-tu
 http://zysw01.github.com/thinktrain/2013/10/02/du-shao-you-ren-zou-de-lu
 http://zysw01.github.com/studynotes/2013/09/22/shu-ju-wa-jue-zhi-ni-wen-wo-da
 http://zysw01.github.com/usedtools/2013/09/22/r-yu-yan-xue-xi
